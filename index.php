@@ -123,11 +123,12 @@
                             aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <ul class="alert alert-danger" ng-if="erros.length > 0">
-                    	<li ng-repeat="error in errors">
-                    		{{ error }}
-                    	</li>
-                    </ul>
+                    
+                    <ul class="alert alert-danger" ng-if="errors.length > 0">
+                        <li ng-repeat="error in errors">
+                            {{ error }}
+                        </li>
+                     </ul>
 
                     <div class="form-group">
                         <label for="name">Nombre</label>

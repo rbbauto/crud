@@ -1,5 +1,6 @@
 <?php
 error_reporting(-1);
+ini_set('upload_max_filesize', '4M'); 
 
 if(preg_match("%\.(gif|jpe?g|png|jpg)$%i", $_FILES['fiche']['name'])){
 
