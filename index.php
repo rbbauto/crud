@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="float-right">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#add_new_modal"> <i class="fas fa-plus-circle"></i> Nuevo Producto
+                    <button ng-click="errors= []" class="btn btn-success" data-toggle="modal" data-target="#add_new_modal"> <i class="fas fa-plus-circle"></i> Nuevo Producto
                     </button>
                 </div>
             </div>
