@@ -25,7 +25,8 @@ class Crud{
 
 
     public function Create($name, $description,$imagen)
-    {
+    {   
+        $imagen = isset($imagen) ? $imagen : "assets/imgDefalut/default.png";
         $query = $this->db->prepare("INSERT INTO productos(nombre, descripcion, imagen) VALUES (:nombre,:descripcion,:imagen)");
         $query->bindParam("nombre", $name, PDO::PARAM_STR);
         $query->bindParam("descripcion", $description, PDO::PARAM_STR);
