@@ -14,7 +14,7 @@
     </thead>
                     
     <tr ng-repeat="producto in productos |filter:buscarProductos">
-        <td>{{$index}}</td>
+        <td>{{$index + 1}}</td>
         <td><img src="{{producto.imagen}}" width="120px"</td>
         <td>{{producto.nombre}}</td>
         <td>{{producto.descripcion}}</td>
