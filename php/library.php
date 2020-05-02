@@ -65,18 +65,17 @@ class Crud{
     
      public function CreateCat($categoria)
     {   
-        
         $categoria = isset($categoria) ? $categoria : "Varios";
         
         try{
             $query = $this->db->prepare("INSERT INTO categorias (id, nombre_categoria) VALUES (NULL, :categoria)");
             $query->bindParam("categoria", $categoria, PDO::PARAM_STR);
             $query->execute();
-
             return json_encode([['errors' => ''], 'categoria'     => $categoria]);           
-            }catch(Exception $e){
-                json_encode(['errors' => [$e]]);   
-            }
+        }catch(Exception $e){
+            http_response_code(400);
+            return json_encode(['errors' => ["La Categoria : '$categoria' ya existe!"]]);
+        }
 
         
         
