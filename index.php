@@ -34,137 +34,23 @@
         <div class="row">
             <div class="col-md-12">
                 <h3><i class="fas fa-boxes"></i> Productos:</h3>
-                <table ng-if="productos.length > 0" class="table table-responsive table-striped">
-                    <tr>
-                        <th>Id</th>
-                        <th>Imagen</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Acción</th>
-                    </tr>
-                    <tr ng-repeat="producto in productos">
-                        <td>{{$index}}</td>
-                        <td><img src="{{producto.imagen}}" width="120px"</td>
-                        <td>{{producto.nombre}}</td>
-                        <td>{{producto.descripcion}}</td>
-                        <td>
-                            <button ng-click="edit($index)" class="btn btn-primary btn-xs"><i class="fas fa-pencil-alt"></i> Editar</button>
-                            <button ng-click="delete($index)" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i> Eliminar</button>
-                        </td>
-                    </tr>
-                </table>
+                <!-- Tabla Productos -->
+                <?php require_once"view/table.view.php"; ?>
+                <!-- / Tabla -->
             </div>
         </div>
 
 	
 	<!-- Bootstrap Modals -->
-   
-    <div class="modal fade" id="add_new_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                   
-                    <h4 class="modal-title" id="myModalLabel">Nuevo Producto</h4> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
 
-                	 <ul class="alert alert-danger" ng-if="errors.length > 0">
-                        <li ng-repeat="error in errors">
-                        	{{ error }}
-                        </li>
-                     </ul>
-
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input ng-model="producto.nombre" type="text" id="name" class="form-control"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Descripción</label>
-                        <textarea ng-model="producto.descripcion" class="form-control" name="description"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        
-                        <div class="card" style="width: 18rem;">
-                          <img  class="card-img-top img-card-custom" src="{{ detalle_producto.imagen }}">
-                          <div class="card-body">
-                            <form enctype="multipart/form-data" id="formu">
-                                <input type="file" id="archivo" class="form-control-file"/> <br/>
-                                <input ng-model="producto.imagen" type="text" name="imagen" class="form-control" />
-                                <button ng-click="AddImagen()" class="btn btn-info" >Subir</button>
-                        
-                    </form>
-                            
-                          </div>
-                        </div>
-   
-                    </div>
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" ng-click="addProduct()">Guardar Producto</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- // Modal -->
-	
-	<!-- Modal - Update -->
-    <div class="modal fade" id="modal_update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Editar Producto</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    
-                    <ul class="alert alert-danger" ng-if="errors.length > 0">
-                        <li ng-repeat="error in errors">
-                            {{ error }}
-                        </li>
-                     </ul>
-
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input ng-model="detalle_producto.nombre" type="text" id="name" class="form-control"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Descripción</label>
-                        <textarea ng-model="detalle_producto.descripcion" class="form-control" name="description"></textarea>
-                    </div>
-
-                    
-                        
-                    <div class="card">
-                        <img class="card-img-top img-card-custom" src="{{ detalle_producto.imagen }}">
-                        <div class="card-body">
-                            <form enctype="multipart/form-data" id="formu">
-                                <input type="file" id="archivo2" class="form-control-file"/> <br/>
-                                <input ng-model="detalle_producto.imagen" type="text" name="imagen" class="form-control" />
-                                <button ng-click="subiendoAJAX()" class="btn btn-info" >Subir</button>
-                            </form>
-                        </div>
-                            
-                    </div>
-
-                </div>
-                
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button ng-click="updateProduct()" type="button" class="btn btn-primary">Guardar Cambios</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- // Modal -->
-    
+        <!-- Create -->
+        <?php require_once"view/modalCreate.view.php"; ?>
+        <!-- // Modal -->
+    	
+    	<!-- Modal - Update -->
+            <?php require_once"view/modalUpdate.view.php"; ?>
+        <!-- // Modal -->
+    <!-- End Modals -->
     </div>
 
 	

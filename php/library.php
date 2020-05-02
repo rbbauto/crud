@@ -24,20 +24,30 @@ class Crud{
     }
 
 
-    public function Create($name, $description,$imagen)
+    public function Create($name, $description,$imagen,$color,$categoria,$stock,$activa)
     {   
         $imagen = isset($imagen) ? $imagen : "assets/imgDefalut/default.png";
-        $query = $this->db->prepare("INSERT INTO productos(nombre, descripcion, imagen) VALUES (:nombre,:descripcion,:imagen)");
+        $categoria = isset($categoria) ? $categoria : "Varios";
+
+        $query = $this->db->prepare("INSERT INTO productos(nombre, descripcion, imagen,color,categoria,stock,activa) VALUES (:nombre,:descripcion,:imagen,:color,:categoria,:stock,:activa)");
         $query->bindParam("nombre", $name, PDO::PARAM_STR);
         $query->bindParam("descripcion", $description, PDO::PARAM_STR);
         $query->bindParam("imagen", $imagen, PDO::PARAM_STR);
+        $query->bindParam("color", $color, PDO::PARAM_STR);
+        $query->bindParam("categoria", $categoria, PDO::PARAM_STR);
+        $query->bindParam("stock", $stock, PDO::PARAM_STR);
+        $query->bindParam("activa", $activa, PDO::PARAM_STR);
         $query->execute();
 
         return json_encode(['producto' => [
-            'id'          => $this->db->lastInsertId(),
+            'id'            => $this->db->lastInsertId(),
             'nombre'        => $name,
-            'descripcion' => $description,
-            'imagen' => $imagen
+            'descripcion'   => $description,
+            'imagen'        => $imagen,
+            'color'         => $color,
+            'categoria'     => $categoria,
+            'stock'         => $stock,
+            'activa'        => $activa
         ]]);
     }
     
@@ -50,13 +60,17 @@ class Crud{
     }
 
 
-    public function Update($name, $description, $product_id,$imagen)
+    public function Update($name, $description, $product_id,$imagen,$color,$categoria,$stock,$activa)
     {
-        $query = $this->db->prepare("UPDATE productos SET imagen = :imagen, nombre = :nombre, descripcion = :descripcion WHERE id = :id");
+        $query = $this->db->prepare("UPDATE productos SET imagen = :imagen, nombre = :nombre, descripcion = :descripcion, color = :color, categoria = :categoria, stock = :stock, activa = :activa  WHERE id = :id");
         $query->bindParam("nombre", $name, PDO::PARAM_STR);
         $query->bindParam("descripcion", $description, PDO::PARAM_STR);
         $query->bindParam("id", $product_id, PDO::PARAM_STR);
         $query->bindParam("imagen", $imagen, PDO::PARAM_STR);
+        $query->bindParam("color", $color, PDO::PARAM_STR);
+        $query->bindParam("categoria", $categoria, PDO::PARAM_STR);
+        $query->bindParam("stock", $stock, PDO::PARAM_STR);
+        $query->bindParam("activa", $activa, PDO::PARAM_STR);
         $query->execute();
     }
 
