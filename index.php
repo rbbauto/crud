@@ -24,6 +24,9 @@
 
         <div class="row">
             <div class="col-md-12">
+                <div class="float-left">
+                    <input id="buscar" type="text" ng-model="buscarProductos" class="form-control" placeholder="Ingrese criterio de busqueda">
+                </div>
                 <div class="float-right">
                     <button ng-click="errors= []" class="btn btn-success" data-toggle="modal" data-target="#add_new_modal"> <i class="fas fa-plus-circle"></i> Nuevo Producto
                     </button>
