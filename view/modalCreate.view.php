@@ -16,13 +16,13 @@
                      </ul>
 
                     <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input ng-model="producto.nombre" type="text" id="name" class="form-control"/>
+                        
+                        <input placeholder="Nombre del Producto" ng-model="producto.nombre" type="text" id="name" class="form-control"/><i class="alert-danger">obligatorio!</i>
                     </div>
 
                     <div class="form-group">
-                        <label for="description">Descripción</label>
-                        <textarea ng-model="producto.descripcion" class="form-control" name="description"></textarea>
+                        
+                        <textarea placeholder="Descripcion del Producto" ng-model="producto.descripcion" class="form-control" name="description"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -50,6 +50,7 @@
                             <option value="1">Si</option>
                             <option value="0">No</option>
                         </select>
+                        <i class="alert-danger">obligatorio!</i>
                     </div>
 
                     <div class="form-group">

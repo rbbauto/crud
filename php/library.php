@@ -23,6 +23,18 @@ class Crud{
         return json_encode(['productos' => $data]);
     }
 
+     public function ReadCat()
+    {
+        $query = $this->db->prepare("SELECT nombre_categoria FROM categorias");
+        $query->execute();
+        $data = array();
+        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $data[] = $row['nombre_categoria'];
+        }
+
+        return json_encode(['categorias' => $data]);
+    }
+
 
     public function Create($name, $description,$imagen,$color,$categoria,$stock,$activa)
     {   
@@ -51,6 +63,24 @@ class Crud{
         ]]);
     }
     
+     public function CreateCat($categoria)
+    {   
+        
+        $categoria = isset($categoria) ? $categoria : "Varios";
+        
+        try{
+            $query = $this->db->prepare("INSERT INTO categorias (id, nombre_categoria) VALUES (NULL, :categoria)");
+            $query->bindParam("categoria", $categoria, PDO::PARAM_STR);
+            $query->execute();
+
+            return json_encode([['errors' => ''], 'categoria'     => $categoria]);           
+            }catch(Exception $e){
+                json_encode(['errors' => [$e]]);   
+            }
+
+        
+        
+    }
 
     public function Delete($product_id)
     {

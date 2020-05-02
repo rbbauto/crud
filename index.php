@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>AngularJS PHP CRUD</title>
+	<title>Administracion</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -26,6 +26,8 @@
             <div class="col-md-12">
                 <div class="float-right">
                     <button ng-click="errors= []" class="btn btn-success" data-toggle="modal" data-target="#add_new_modal"> <i class="fas fa-plus-circle"></i> Nuevo Producto
+                    </button>
+                    <button ng-click="errors= []" class="btn btn-primary" data-toggle="modal" data-target="#add_new_cat"> <i class="fas fa-plus-circle"></i> Nueva Categoria
                     </button>
                 </div>
             </div>
@@ -49,6 +51,11 @@
     	
     	<!-- Modal - Update -->
             <?php require_once"view/modalUpdate.view.php"; ?>
+        <!-- // Modal -->
+    <!-- End Modals -->
+
+    <!-- Modal - Create Categoria -->
+            <?php require_once"view/modalCreateCategoria.view.php"; ?>
         <!-- // Modal -->
     <!-- End Modals -->
     </div>
