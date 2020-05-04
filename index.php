@@ -1,3 +1,18 @@
+<?php 
+    error_reporting(-1);
+    session_start();
+    if (isset($_POST['nombre']) && isset($_POST['contrasenia'])) {
+        
+        require_once"core/model/login.class.php";
+        $login=new login();
+        $check=$login->checkLogin($_POST['nombre'],md5($_POST['contrasenia']));
+    }
+    if(isset($_SESSION["conectado"]) == 0){
+       header('Location: login.php');
+    }
+    
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +49,7 @@
                     </button>
                     <button ng-click="errors= []" class="btn btn-primary" data-toggle="modal" data-target="#add_new_cat"> <i class="fas fa-plus-circle"></i> Nueva Categoria
                     </button>
+                    <a class="btn btn-danger" href="logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar Session</a>
                 </div>
             </div>
         </div>
