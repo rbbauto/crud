@@ -38,7 +38,7 @@ class Crud{
 
     public function Create($name, $description,$imagen,$color,$categoria,$stock,$activa)
     {   
-        $imagen = isset($imagen) ? $imagen : "assets/imgDefalut/default.png";
+        $imagen = isset($imagen) ? $imagen : "assets/imgDefault/default.png";
         $categoria = isset($categoria) ? $categoria : "Varios";
 
         $query = $this->db->prepare("INSERT INTO productos(nombre, descripcion, imagen,color,categoria,stock,activa) VALUES (:nombre,:descripcion,:imagen,:color,:categoria,:stock,:activa)");
