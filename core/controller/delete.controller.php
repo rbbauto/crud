@@ -4,7 +4,7 @@ $data = json_decode(file_get_contents('php://input'), TRUE);
 
 if (isset($data['producto'])) {
 
-    require __DIR__ . '/library.php';
+    require 'core/model/library.class.php';
 
     $product_id = (isset($data['producto']['id']) ? $data['producto']['id'] : NULL);
 

@@ -4,7 +4,7 @@ ini_set('upload_max_filesize', '4M');
 
 if(preg_match("%\.(gif|jpe?g|png|jpg)$%i", $_FILES['fiche2']['name'])){
 
-	if(move_uploaded_file($_FILES['fiche2']['tmp_name'], "../assets/img/" . $_FILES['fiche2']['name'])){
+	if(move_uploaded_file($_FILES['fiche2']['tmp_name'], "assets/img/" . $_FILES['fiche2']['name'])){
 
 		//require __DIR__ . '/library.php';
 

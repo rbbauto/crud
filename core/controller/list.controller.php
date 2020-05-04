@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/library.php';
+require 'core/model/library.class.php';
  
 $productos = new Crud();
  
